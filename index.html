@@ -32,6 +32,7 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            padding-top: 80px; /* Prevents hero content from hiding behind fixed header */
         }
 
         /* --- Header & Navigation --- */
@@ -40,7 +41,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             z-index: 1000;
             transition: var(--transition);
@@ -51,29 +52,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
         .logo-area {
             display: flex;
-            flex-direction: column;
+            align-items: center;
         }
-        .logo-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
+        .logo-img {
+            height: 55px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            transition: var(--transition);
         }
-        .logo-subtitle {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        nav {
+            display: flex;
+            align-items: center;
         }
         nav ul {
             display: flex;
             list-style: none;
             gap: 25px;
+            align-items: center;
         }
         nav ul a {
             text-decoration: none;
@@ -81,6 +81,7 @@
             font-weight: 600;
             font-size: 15px;
             transition: var(--transition);
+            display: block;
         }
         nav ul a:hover, nav ul a.active {
             color: var(--primary);
@@ -98,19 +99,19 @@
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--dark);
+            padding: 5px;
         }
 
         /* --- Hero Section --- */
         #home {
-            height: 100vh;
+            min-height: calc(100vh - 80px);
             background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.6)), 
                         url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
             display: flex;
             align-items: center;
             color: white;
-            padding: 0 20px;
-            text-align: left;
-            margin-top: 0;
+            padding: 40px 20px;
         }
         .hero-content {
             max-width: 800px;
@@ -133,6 +134,7 @@
         }
         .hero-buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 15px;
         }
         .btn {
@@ -142,6 +144,7 @@
             font-weight: 600;
             transition: var(--transition);
             display: inline-block;
+            text-align: center;
         }
         .btn-primary {
             background: var(--primary);
@@ -162,16 +165,16 @@
 
         /* --- Section Styling --- */
         section {
-            padding: 90px 20px 60px 20px;
+            padding: 80px 20px 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .section-header h2 {
-            font-size: 36px;
+            font-size: 32px;
             color: var(--secondary);
             position: relative;
             display: inline-block;
@@ -191,6 +194,7 @@
         .section-header p {
             color: var(--gray);
             margin-top: 10px;
+            font-size: 16px;
         }
 
         /* --- About Section & Map --- */
@@ -221,6 +225,7 @@
             gap: 10px;
             font-weight: 600;
             color: var(--dark);
+            font-size: 14px;
         }
         .highlight-item i {
             color: var(--primary);
@@ -231,12 +236,11 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: relative;
-            height: 450px;
+            height: 400px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        /* Using a styled map overlay graphic to match Indian transport network styling context */
         .map-container img {
             width: 100%;
             height: 100%;
@@ -247,11 +251,13 @@
             position: absolute;
             bottom: 20px;
             left: 20px;
+            right: 20px;
             background: rgba(30, 58, 138, 0.95);
             color: white;
             padding: 12px 20px;
             border-radius: 5px;
             font-size: 14px;
+            text-align: center;
         }
 
         /* --- Services --- */
@@ -304,7 +310,7 @@
         /* --- Value Added Services Grid --- */
         .vas-section {
             background: white;
-            padding: 40px;
+            padding: 40px 25px;
             border-radius: 10px;
             margin-top: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
@@ -347,19 +353,19 @@
         /* --- Clients Slider Frame --- */
         .clients-container {
             background: white;
-            padding: 40px 20px;
+            padding: 30px 15px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             overflow: hidden;
         }
         .client-track {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             animation: scroll 35s linear infinite;
             width: max-content;
         }
         .client-name {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             color: var(--gray);
             white-space: nowrap;
@@ -382,7 +388,7 @@
         .contact-info {
             background: var(--secondary);
             color: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -399,7 +405,7 @@
             margin-bottom: 25px;
         }
         .info-link-item i {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--primary);
             background: white;
             width: 40px;
@@ -408,6 +414,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            flex-shrink: 0;
         }
         .info-link-item a {
             color: white;
@@ -415,13 +422,14 @@
             font-size: 16px;
             font-weight: 600;
             transition: var(--transition);
+            word-break: break-all;
         }
         .info-link-item a:hover {
             text-decoration: underline;
         }
         .contact-form-wrapper {
             background: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
@@ -481,34 +489,78 @@
             margin-bottom: 15px;
         }
 
-        /* --- Responsive Design --- */
+        /* --- Global Responsive Media Queries --- */
         @media (max-width: 968px) {
-            .about-grid, .contact-grid {
-                grid-template-columns: 1fr;
+            body {
+                padding-top: 70px;
+            }
+            .logo-img {
+                height: 45px; /* Shrinks the logo nicely on tablet viewports */
             }
             .menu-toggle {
-                display: block;
+                display: block; /* Shows mobile hamburger menu icon */
             }
             nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
+                position: fixed;
+                top: 70px;
+                left: -100%; /* Hides the menu offscreen initially */
                 width: 100%;
+                height: calc(100vh - 70px);
                 background: white;
                 flex-direction: column;
-                padding: 20px;
-                gap: 15px;
+                align-items: stretch;
+                padding: 30px 20px;
+                gap: 20px;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                display: none;
+                transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow-y: auto;
             }
             nav ul.active {
-                display: flex;
+                left: 0; /* Slides the mobile menu panel into view */
             }
-            .vas-grid {
-                grid-template-columns: 1fr;
+            nav ul a {
+                font-size: 18px;
+                padding: 10px 0;
+                border-bottom: 1px solid #f1f5f9;
+            }
+            .cta-btn {
+                text-align: center;
+                background: var(--primary);
+                margin-top: 10px;
+                border-bottom: none;
             }
             .hero-content h1 {
-                font-size: 36px;
+                font-size: 34px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .about-grid, .contact-grid, .vas-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 38px; /* Extra protection to keep the logo scaling properly on tiny phones */
+            }
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            .section-header h2 {
+                font-size: 26px;
+            }
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            .contact-info, .contact-form-wrapper, .vas-section {
+                padding: 20px;
             }
         }
     </style>
@@ -518,7 +570,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <img src="logo.jpeg" alt="Smit Transport Logo" style="height: 55px; width: auto; object-fit: contain;">
+                <img src="logo.jpeg" alt="Smit Transport Logo" class="logo-img">
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fa-solid fa-bars"></i>
@@ -566,7 +618,7 @@
             <div class="map-container">
                 <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800" alt="Indian Transport Map Network Placeholder">
                 <div class="map-overlay-badge">
-                    <i class="fa-solid fa-map-location-dot"></i><strong> Gujarat to All Over India</strong> Network Coverage
+                    <i class="fa-solid fa-map-location-dot"></i> <strong>Gujarat to All Over India</strong> Network Coverage
                 </div>
             </div>
         </div>
@@ -685,9 +737,18 @@
         // Mobile Navigation Drawer Toggle Mechanics
         const mobileMenu = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
+        const menuIcon = mobileMenu.querySelector('i');
 
         mobileMenu.addEventListener('click', () => {
             navList.classList.toggle('active');
+            // Toggle between hamburger menu icon and Close 'X' icon
+            if (navList.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
         });
 
         // Dynamic Active Navigation Item Tracking on Scroll Viewports
@@ -710,11 +771,15 @@
                     link.classList.add('active');
                 }
             });
-            
-            // Close mobile menu on click/scroll action
-            if(window.innerWidth <= 968) {
+        });
+
+        // Close mobile drawer when clicking any nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
                 navList.classList.remove('active');
-            }
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
         });
 
         // Dynamic Loading of Corporate Client Track Array for Seamless Looping Effect
@@ -727,7 +792,6 @@
         ];
 
         const track = document.getElementById('client-track');
-        // Double array content loop initialization ensures smooth CSS infinite loop slide
         const combinedClients = [...clientsList, ...clientsList];
         
         combinedClients.forEach(client => {
